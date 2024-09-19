@@ -15,7 +15,7 @@ app.use(express.static(staticPath));
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000", "https://joeboxmulti.onrender.com/"],
+    origin: ["http://localhost:3000", "https://joeboxmultifront.onrender.com"],
     methods: ["GET", "POST"]
   }
 });
