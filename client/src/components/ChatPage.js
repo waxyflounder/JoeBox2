@@ -1,4 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { setUser, setRoomId, setSocketId } from '../Redux/roomSlice'
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import ChatBar from './ChatBar';
 import ChatBody from './ChatBody';
 import ChatFooter from './ChatFooter';
@@ -8,14 +11,27 @@ import supabase from '../supabaseClient';
 import './styles/ChatPage.css';
 
 const ChatPage = ({ socket }) => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [messages, setMessages] = useState([]);
     const [typingStatus, setTypingStatus] = useState('');
     const lastMessageRef = useRef(null);
     const [newMessage, setNewMessage] = useState('');
-
+    const rmUsers = useSelector((state) => state.room.currUsers);
     // Store the current user's name
     const currentUserName = localStorage.getItem('userName');
     const roomCode = localStorage.getItem('roomCode');
+
+    const handleLogo = () => {
+        //update Redux store with roomId
+        dispatch(setUser(null));
+        dispatch(setRoomId(null));
+        dispatch(setSocketId(null));
+
+        localStorage.removeItem('userName');
+        navigate('/');
+        window.location.reload();
+    }
 
     useEffect(() => {
         const fetchMessages = async () => {
@@ -64,35 +80,43 @@ const ChatPage = ({ socket }) => {
         setNewMessage('');
     };
 
+    document.body.style.overflow = 'hidden';
+
     return (
         <>
-        <div className="logo">
-            <h1>Joe Box</h1>
-        </div>
-        <div className = "window">
-                <ChatBar socket={socket} />
-                <div className = "gameDisp">
-                    <GameDisplay socket={socket}/>
+        <div className="GameScreenMessages">
+                <div className="hoverDiv">
+                    <h1 className="" onClick = {handleLogo}>Joe-Box</h1>
                 </div>
-                <div className="chat__main">
-                    <ChatBody
-                        socket={socket}
-                        messages={messages}
-                        typingStatus={typingStatus}
-                        lastMessageRef={lastMessageRef}
-                        currentUserName={currentUserName}
-                    />
-                    <div className = "sendTag">
-                    <ChatFooter
-                    socket={socket}
-                    newMessage={newMessage}
-                    setNewMessage={setNewMessage}
-                    handleSendMessage={handleSendMessage}
-                    />
+                <div className="optionalRoomCode">
+                    <h1>{rmUsers}</h1>
+                    <h1>{roomCode}</h1>
+                </div>
+            <div className = "window">
+                    <ChatBar socket={socket} />
+                    <div className = "gameDisp">
+                        <GameDisplay socket={socket}/>
                     </div>
+                    
+                    <div className="chat__main">
+                        <ChatBody
+                            socket={socket}
+                            messages={messages}
+                            typingStatus={typingStatus}
+                            lastMessageRef={lastMessageRef}
+                            currentUserName={currentUserName}
+                        />
+                        <div className = "sendTag">
+                        <ChatFooter
+                        socket={socket}
+                        newMessage={newMessage}
+                        setNewMessage={setNewMessage}
+                        handleSendMessage={handleSendMessage}
+                        />
+                        </div>
+                </div>
             </div>
         </div>
-    
     </>
     );
 };
