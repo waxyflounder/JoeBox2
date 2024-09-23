@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // const staticPath = path.resolve(__dirname, ".", "dist");
-const staticPath = path.resolve(__dirname, "../client/public");
+const staticPath = path.resolve(__dirname, "../client");
 app.use(express.static(staticPath));
 
 const server = http.createServer(app);
