@@ -22,6 +22,18 @@ const io = new Server(server, {
 
 app.use(cors());
 
+// Cron Job root definition for root URL
+// Define a route for the root URL
+app.get('/', (req, res) => {
+    res.send('Ping received successfully!');
+  });
+
+
+// Start the server
+server.listen(PORT, () => {
+    console.log(`Server listening on ${PORT}`);
+  });
+
 // Game state constants
 const gameStates = ['answerInitialQuestion', 'othersAnswering', 'voting', 'leaderboard'];
 const rooms = {};
