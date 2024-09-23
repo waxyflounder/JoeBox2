@@ -27,11 +27,13 @@ app.use(cors());
 // Cron Job root definition for root URL
 app.get('/', (req, res) => {
     res.send('Ping received successfully!');
+    console.log('Backend Pinged');
   });
   
   // Serve index.html for all other routes (SPA handling)
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(staticPath, 'index.html'));
+    console.log('served index');
   });
 
 
