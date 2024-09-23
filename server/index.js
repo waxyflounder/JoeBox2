@@ -29,9 +29,18 @@ app.get('/', (req, res) => {
     res.send('Ping received successfully!');
     console.log('Backend Pinged');
   });
+
+  // Serve index.html for all other routes (SPA handling)
+  app.get('/', (req, res) => {
+    console.log('static path: ', staticPath);
+    res.sendFile(path.resolve(staticPath, 'index.html'));
+    console.log('served index');
+  });
+
   
   // Serve index.html for all other routes (SPA handling)
   app.get('*', (req, res) => {
+    console.log('static path: ', staticPath);
     res.sendFile(path.resolve(staticPath, 'index.html'));
     console.log('served index');
   });
