@@ -26,7 +26,6 @@ app.use(cors());
 
 // Cron Job root definition for root URL
 app.get('/', (req, res) => {
-    console.log('static path: ', staticPath);
     res.send('Ping received successfully!');
     console.log('Backend Pinged');
   });
