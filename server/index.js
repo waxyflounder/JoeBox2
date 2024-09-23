@@ -28,12 +28,6 @@ app.get('/', (req, res) => {
     res.send('Ping received successfully!');
   });
 
-
-// Start the server
-server.listen(PORT, () => {
-    console.log(`Server listening on ${PORT}`);
-  });
-
 // Game state constants
 const gameStates = ['answerInitialQuestion', 'othersAnswering', 'voting', 'leaderboard'];
 const rooms = {};
