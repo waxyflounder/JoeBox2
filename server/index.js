@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // const staticPath = path.resolve(__dirname, ".", "dist");
-const staticPath = path.resolve(__dirname, "../client/dist");
+const staticPath = path.resolve(__dirname, "../client");
 app.use(express.static(staticPath));
 
 const server = http.createServer(app);
@@ -23,11 +23,6 @@ const io = new Server(server, {
 
 app.use(cors());
 
-// // Cron Job root definition for root URL
-// // Define a route for the root URL
-// app.get('/', (req, res) => {
-//     res.send('Ping received successfully!', res);
-//   });
 
 // Cron Job root definition for root URL
 app.get('/', (req, res) => {
