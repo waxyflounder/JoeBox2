@@ -22,11 +22,23 @@ const io = new Server(server, {
 
 app.use(cors());
 
-// Cron Job root definition for root URL
-// Define a route for the root URL
-app.get('/', (req, res) => {
-    res.send('Ping received successfully!');
-  });
+// // Cron Job root definition for root URL
+// // Define a route for the root URL
+// app.get('/', (req, res) => {
+//     res.send('Ping received successfully!', res);
+//   });
+
+// Ping route for both backend and frontend
+app.get('/ping', (req, res) => {
+    res.status(200).send('Ping received successfully! ', res);
+});
+
+// All other requests will serve the frontend
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(staticPath, "index.html"));
+});
+
+
 
 // Game state constants
 const gameStates = ['answerInitialQuestion', 'othersAnswering', 'voting', 'leaderboard'];
