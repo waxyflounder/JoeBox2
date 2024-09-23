@@ -9,7 +9,8 @@ const supabase = require('./supabaseClient');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-const staticPath = path.resolve(__dirname, ".", "dist");
+// const staticPath = path.resolve(__dirname, ".", "dist");
+const staticPath = path.resolve(__dirname, "../client/dist");
 app.use(express.static(staticPath));
 
 const server = http.createServer(app);
@@ -28,15 +29,15 @@ app.use(cors());
 //     res.send('Ping received successfully!', res);
 //   });
 
-// Ping route for both backend and frontend
-app.get('/ping', (req, res) => {
-    res.status(200).send('Ping received successfully! ', res);
-});
-
-// All other requests will serve the frontend
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(staticPath, "index.html"));
-});
+// Cron Job root definition for root URL
+app.get('/', (req, res) => {
+    res.send('Ping received successfully!');
+  });
+  
+  // Serve index.html for all other routes (SPA handling)
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(staticPath, 'index.html'));
+  });
 
 
 
