@@ -7,9 +7,9 @@ Joe Box is a multiplayer web app that hosts the game Fibbage, a fast-paced, room
 Check out here:
 https://joebox.onrender.com
 
-![Login screenshot](joebox1)
-![Game screenshot](joebox2)
-![Game screenshot](joebox3)
+![Login screenshot](./joebox1)
+![Game screenshot](./joebox2)
+![Game screenshot](./joebox3)
 
 ## Features
 
