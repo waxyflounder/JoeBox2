@@ -41,15 +41,7 @@ cd ../server
 npm start
 ```
 navigate to http://localhost:3000
-## Usage
 
-To run the simulator locally:
-
-```bash
-Copy code
-npm start
-This will start the development server, and you can interact with the simulator via your browser at http://localhost:3000.
-```
 
 ## Technolgies Used, How it Works
 - *React*: building frontend.
