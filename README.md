@@ -8,8 +8,8 @@ Check out here:
 https://joebox.onrender.com
 
 ![Login screenshot](Joebox1.jpg)
-![Game screenshot](joebox2.jpg)
-![Game screenshot](joebox3.jpg)
+![Game screenshot](Joebox2.jpg)
+![Game screenshot](Joebox3.jpg)
 
 ## Features
 
