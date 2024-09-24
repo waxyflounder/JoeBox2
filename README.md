@@ -3,7 +3,7 @@
 ## Overview
 
 Joe Box is a multiplayer web app that hosts the game Fibbage, a fast-paced, room-based game inspired by Jackbox's Fibbage: Enough About You. Players create lies and guess the truth in a fun, social environment. The game is best enjoyed with friends or by people looking to know more about each other. Players earn points for guessing correctly or submitting convincing lies!
-(this version of joebox is forked from the collaborative project: https://github.com/NathanYung130/PresentApp with changes made for deployment)
+((this version of joebox is forked from the collaborative project: https://github.com/NathanYung130/PresentApp with changes made for deployment)
 
 Check out here:
 https://joebox.onrender.com
