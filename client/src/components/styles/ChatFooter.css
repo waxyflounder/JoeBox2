@@ -32,6 +32,10 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+
+    /*size to match toggle*/
+    height: 41px;
+    width: 85px;
 }
 
 .sendBtn:hover {
