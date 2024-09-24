@@ -52,7 +52,7 @@ navigate to http://localhost:3000
 - *Redux*: manage application state.
 - *Node.js + Express.js*: The backend server that runs the game logic and serves the app.
 - *SQL + Supabase db*: Stores user information, game rooms, messages, and game states.
-
+Each users client subscribes to a roomcode by listening for socket calls tagged with a specific roomcode. Game events trigger state changes in the game, synced by an "admin" user, identified by the first person that entered a room. This way the socket server only has to listen to one call and trigger all other clients in a room to change to the next game screen.
 
 ## Contributing
 Feel free to submit issues or pull requests to improve Joe Box! Contributions are welcome to add new features, improve the UI, or optimize the game mechanics.
