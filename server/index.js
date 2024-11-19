@@ -16,7 +16,7 @@ app.use(express.static(staticPath));
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["https://joebox.onrender.com"],
+    origin: ["https://joebox2.onrender.com/"],
     methods: ["GET", "POST"]
   }
 });
